@@ -555,9 +555,9 @@ var DIRTY_HACK_SEPARATE_CLICK_SPLIT = false // REMOVE ME PLS
 def act(dt: float)
     if get_key(VK_ESCAPE)
         schedule_quit_game()
-    if get_mouse_button(MB_LEFT) || get_key(VK_SPACE)
+    if get_mouse_button(MB_RIGHT) || get_key(VK_SPACE)
         local_player_shoot()
-    if get_mouse_button(MB_RIGHT) || get_key(VK_RCONTROL)
+    if get_mouse_button(MB_LEFT) || get_key(VK_RCONTROL)
         if !DIRTY_HACK_SEPARATE_CLICK_SPLIT
             split_player_unit_entity()
             DIRTY_HACK_SEPARATE_CLICK_SPLIT = true
@@ -617,7 +617,7 @@ def save_and_draw_hud_info(hud: bool) //separate
 def draw
     let fonsSizeBefore = get_current_font_size()
     set_font_size(150)
-    text_out(0, 0, "Welcome to DAgario", 0x073507) // under units
+    text_out(0, 0, "Welcome to DAgario DEMO GAME", 0x073507) // under units
     set_font_size(fonsSizeBefore)
     decs_stage("draw")
 
@@ -626,6 +626,10 @@ def draw
         text_out(0, 300, "PRESS R TO RESTART", 0xFF0000)
     elif DIRTY_HACK_GAME_STATE == 2
         text_out(0, 300, "PRESS R TO START", 0xFF0000)
+        set_font_size(150)
+        text_out(0, 600, "MBL to split", 0xFF0000)
+        text_out(0, 750, "MBR to shoot", 0xFF0000)
+        text_out(0, 900, "It's demo, bonuses will be later", 0xFFFF00)
     set_font_size(fonsSizeBefore)
 
     decs_stage("drawHud")
